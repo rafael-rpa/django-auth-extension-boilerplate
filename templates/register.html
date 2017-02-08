@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+{% if error %}
+<p>E-mail already registered in our database.</p>
+<p>Forgot your password? <a href="{% url 'password-reset' %}">Reset</a>.</p>
+{% endif %}
+
+<form id="form-register" class="form" action="{% url 'register' %}" method="post" novalidate>
+    {% csrf_token %}
+    <fieldset>
+        <p>
+            <label for="first-name">First name</label>
+            <input type="text" id="first-name" name="first-name" class="required" aria-required="true" minlength="2" maxlength="30">
+        </p>
+        <p>
+            <label for="last-name">Last name</label>
+            <input type="text" id="last-name" name="last-name" class="required" aria-required="true" minlength="2" maxlength="30">
+        </p>
+        <p>
+            <label for="email">E-mail</label>
+            <input type="text" id="email" name="email" class="required email" aria-required="true" maxlength="150">
+        </p>
+        <p>
+            <label for="country">Country</label>
+            <input type="text" id="country" name="country" aria-required="false">
+        </p>
+        <p>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="required password" aria-required="true">
+        </p>
+        <p>
+            <label for="password-confirm">Confirm password</label>
+            <input type="password" id="password-confirm" name="password-confirm" class="required" aria-required="true" equalTo="#password">
+        </p>
+        <p>
+            <button>Register</button>
+        </p>
+    </fieldset>
+</form>
+
+{% endblock %}

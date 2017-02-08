@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Edit account{% endblock %}
+
+{% block content %}
+
+{% if form_message %}
+<p>{{form_message}}</p>
+{% endif %}
+
+<form id="form-account-edit" class="form" action="{% url 'account-edit' %}" method="post" novalidate>
+    {% csrf_token %}
+    <fieldset>
+        <p>
+            <strong>{{user.username}}</strong>
+        </p>
+        <p>
+            <label for="first-name">First name</label>
+            <input type="text" id="first-name" name="first-name" class="required" aria-required="true" minlength="2" maxlength="30" value="{{user.first_name}}">
+        </p>
+        <p>
+            <label for="last-name">Last name</label>
+            <input type="text" id="last-name" name="last-name" class="required" aria-required="true" minlength="2" maxlength="30" value="{{user.last_name}}">
+        </p>
+        <p>
+            <label for="country">Country</label>
+            <input type="text" id="country" name="country" aria-required="false" value="{{user.profile.country}}">
+        </p>
+        <p>
+            <label for="password">Current password</label>
+            <input type="password" id="password" name="password" class="required" aria-required="true">
+        </p>
+        <p>
+            <button>Save changes</button>
+        </p>
+    </fieldset>
+</form>
+
+{% endblock %}

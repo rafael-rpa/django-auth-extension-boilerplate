@@ -1,0 +1,16 @@
+# --- Python compiled files
+*.py[cod]
+__pycache__/
+*$py.class
+
+# --- Django
+settings.py
+*.log
+
+# --- User-uploaded media files
+media/**
+!media/.gitkeep
+
+# --- Translations
+*.mo
+*.pot

@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+    For a better front-end boilerplate feel free to use the Front-end Framework (https://github.com/rafael-rpa/front-end-framework).
+    Regarding front-end tasks/actions to be done pre, during and post-development (can be also used as a best practices guideline) please refer to the Front-end Checklist (https://github.com/rafael-rpa/front-end-checklist).
+    -->
+    <title>{% block title %}Title{% endblock %}</title>
+    {% block extrahead %}{% endblock %}
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <p>Hi <strong>{{user.first_name}}</strong>! / <a href="{% url 'logout' %}">Logout</a>
+    <ul>
+        <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+        <li><a href="{% url 'account-edit' %}">Edit account</a></li>
+        <li><a href="{% url 'change-password' %}">Change password</a></li>
+    </ul>
+    {% endif %}
+    {% block content %}{% endblock %}
+    <script src="{% static 'js/vendor/jquery-1.12.2.min.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery.validate-1.15.1.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block extrabody %}{% endblock %}
+</body>
+</html>
