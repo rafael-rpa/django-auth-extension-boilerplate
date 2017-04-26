@@ -18,9 +18,9 @@ urlpatterns = [
     url(r'^account/edit/$', auth_views.account_edit, name='account-edit'),
     url(r'^account/change-password/$', auth_views.change_password, name='change-password'),
 
-    url(r'^password/reset/$', password_reset, {'template_name': 'password-reset-form.html', 'subject_template_name' : 'password_reset_subject.txt', 'post_reset_redirect' : '/password/reset/done/', 'html_email_template_name':'password-reset-email.html'}, name='password-reset'),
+    url(r'^password/reset/$', password_reset, {'template_name': 'password-reset-form.html', 'subject_template_name': 'password_reset_subject.txt', 'post_reset_redirect': '/password/reset/done/', 'html_email_template_name': 'password-reset-email.html'}, name='password-reset'),
     url(r'^password/reset/done/$', password_reset_done, {'template_name': 'password-reset-done.html'}),
-    url(r'^password/reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', password_reset_confirm, {'template_name': 'password-reset-confirm.html', 'post_reset_redirect' : '/password/done/'}, name='password_reset_confirm'),
+    url(r'^password/reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', password_reset_confirm, {'template_name': 'password-reset-confirm.html', 'post_reset_redirect': '/password/done/'}, name='password_reset_confirm'),
     url(r'^password/done/$', password_reset_complete, {'template_name': 'password-reset-complete.html'}),
 
     url(r'^admin/', admin.site.urls),
