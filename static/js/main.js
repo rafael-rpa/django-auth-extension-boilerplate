@@ -8,7 +8,7 @@
 
         passwordValidation: function() {
             $.validator.addMethod("atLeastAlphanumeric", function (value) {
-                return /^[a-z]+[0-9]/i.test(value);
+                return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/i.test(value);
             }, 'Must contain at least one letter and one number.');
 
             $.validator.addClassRules("password", {
