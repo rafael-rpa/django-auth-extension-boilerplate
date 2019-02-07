@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 
 from django.conf.urls import include, url
 from django.contrib import admin
-from apps.auth_extension import views as auth_views
+from auth_extension import views as auth_views
 from django.contrib.auth.views import login, logout, password_reset, password_reset_done, password_reset_confirm, password_reset_complete
 from django.conf import settings
 from django.conf.urls.static import static
